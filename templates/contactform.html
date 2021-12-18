@@ -1,0 +1,26 @@
+<div class="card">
+    <div class="card-block">
+      <h2 style="font-size: 40px;">Contact</h2>
+      <form action="#" class="reveal-content" method="POST">
+        {% if messages %}
+        <ul class="messages" style="list-style-type: none;color: red;text-align:center">
+          {% for message in messages %}
+              <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+          {% endfor %}
+          </ul>
+      {% endif %}
+          {% for field in form %}
+        {% csrf_token %}
+        <div class="form-group">
+            
+          {{field}}
+        </div>
+        {% endfor %}
+
+        
+        <div class="form-group">
+          <button type="submit" class=" btn btn-primary">Send message</button>
+        </div>
+      </form>
+    </div>
+  </div>
